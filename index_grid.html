@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NET DATA Chart</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <script type="text/javascript" src="http://139.59.56.147:19999/dashboard.js"></script>
+    <link rel="stylesheet" href="./css/stylegrid.css">
+</head>
+
+<body>
+    <div class="gc">
+        <div class="chartHeader">
+            Delivery Engine Queues
+        </div>
+        <div class="chartMenu">
+            <ul>
+                <li>
+                    <a href="#link1">ESP's</a>
+                    <label class="switch alignswitch">
+                        <input type="checkbox" checked>
+                        <span class="slider round"></span>
+                    </label>
+                </li>
+                <li>
+                    <a href="#link2">Campaigns
+                        <label class="switch alignswitch">
+                            <input type="checkbox" checked>
+                            <span class="slider round"></span>
+                        </label>
+                </li>
+                <li>
+                    <a href="#link3">Sites</a>
+                    <label class="switch alignswitch">
+                        <input type="checkbox" checked>
+                        <span class="slider round"></span>
+                    </label>
+                </li>
+            </ul>
+
+            <ul id="custom-charts">
+                <div class="custom-charts" data-netdata-icon="users.pwrites" data-height="200px" data-width="98%">Users Disk Writes </div>
+                <div class="custom-charts" data-netdata-icon="netdata.plugin_proc_modules" data-height="200px" data-width="98%">Proc Plugin</div>
+                <div class="custom-charts" data-netdata-icon="apps.cpu" data-height="200px" data-width="98%">Apps CPU Time</div>
+                <div class="custom-charts" data-netdata-icon="apps.threads" data-height="200px" data-width="98%">Apps Threads</div>
+                <div class="custom-charts" data-netdata-icon="apps.sockets" data-height="200px" data-width="98%">Apps Open Sockets</div>
+            </ul>
+        </div>
+        <div class="chartRight">
+            <h1>Chart</h1>
+            <hr>
+            <!--
+            <p class="title">Received Request</p>
+            <div    data-netdata="named_testinnode.received_requests" 
+                    data-height="200px" 
+                    data-width="98%" 
+                    data-colors="#22CC77 #009DD6" 
+                    data-dygraph-smooth="true"
+                    data-dygraph-type="line"
+                    data-dygraph-strokewidth="2" 
+                    data-dygraph-highlightcirclesize="8"
+                    data-dimensions="productionRate|consumptionRate"
+                    data-dt-element-name="measurement1"
+                    data-show-value-of-productionRate-at="productionrate"
+            ></div>
+
+            <p>Refreshed in
+                <span id="measurement1">∞</span> milliseconds!</p>
+                <span id="productionrate">∞</span> milliseconds!</p>
+
+            <br>
+            <hr>
+        -->
+            <div data-netdata="beanstalk.received_requests_enqueue"
+                data-chart-library="easypiechart"
+                data-title="Watching"
+                data-units="Jobs"
+                data-dimensions="current-watching"
+                data-height="200px" 
+                data-width="200px"
+            ></div>
+
+            <div data-netdata="beanstalk.received_requests_enqueue"
+                data-chart-library="easypiechart"
+                data-title="Delayed"
+                data-units="Jobs"
+                data-dimensions="current-jobs-delayed"
+                data-height="200px" 
+                data-width="200px"
+            ></div>
+
+            <div data-netdata="beanstalk.received_requests_enqueue"
+                data-chart-library="easypiechart"
+                data-title="Delete"
+                data-units="Jobs"
+                data-dimensions="cmd-delete"
+                data-height="200px" 
+                data-width="200px"
+            ></div>
+
+            <div data-netdata="beanstalk.received_requests_enqueue"
+                data-chart-library="easypiechart"
+                data-title="Using"
+                data-units="Jobs"
+                data-dimensions="current-using"
+                data-height="200px" 
+                data-width="200px"
+            ></div>
+
+            <div data-netdata="beanstalk.received_requests_enqueue"
+                data-chart-library="easypiechart"
+                data-title="Urgent"
+                data-units="Jobs"
+                data-dimensions="current-jobs-urgent"
+                data-height="200px" 
+                data-width="200px"
+            ></div>
+
+            <div data-netdata="beanstalk.received_requests_enqueue"
+                data-chart-library="easypiechart"
+                data-title="Ready"
+                data-units="Jobs"
+                data-dimensions="current-jobs-ready"
+                data-height="200px" 
+                data-width="200px"
+            ></div>
+
+            <div data-netdata="beanstalk.received_requests_enqueue"
+                data-chart-library="easypiechart"
+                data-title="Total"
+                data-units="Jobs"
+                data-dimensions="total-jobs"
+                data-height="200px" 
+                data-width="200px"
+            ></div>
+
+            <p class="title">Received Request Enqueue</p>
+            <div    data-netdata="beanstalk.received_requests_enqueue" 
+                    data-height="200px" 
+                    data-width="98%" 
+                    data-points="25"
+                    data-dygraph-type="area"
+                    data-dygraph-smooth="true"
+                    data-dimensions="cmd-delete"
+                    data-colors="#22CC77 #009DD6"
+                    data-dygraph-strokewidth="3"  
+            ></div>
+
+            <p class="title">Received Request Enqueue</p>
+            <div    data-netdata="beanstalk.received_requests_enqueue" 
+                    data-height="200px" 
+                    data-width="98%" 
+                    data-points="25"
+                    data-dygraph-type="area"
+                    data-dygraph-smooth="true"
+                    data-colors="#22CC77 #009DD6" 
+                    data-dimensions="current-jobs-ready|current-jobs-urgent|current-using|current-jobs-delayed|current-watching"
+                    data-colors="#22CC77 #009DD6"
+                    data-dygraph-strokewidth="3"  
+            ></div>
+
+            <br>
+            <hr>
+            <p class="title">Received Request Max Resolve</p>
+            <div    data-netdata="beanstalk.received_requests_MxResolve" 
+                    data-height="200px" 
+                    data-width="98%" 
+                    data-colors="#22CC77 #009DD6" 
+                    data-dygraph-smooth="true"
+                    data-dygraph-type="line"
+                    data-dygraph-strokewidth="2" 
+                    data-dygraph-highlightcirclesize="8"
+            ></div>
+
+
+            <br>
+            <hr>
+            <p class="title">Received Request Push Message</p>
+            <div    data-netdata="beanstalk.received_requests_PushMessage" 
+                    data-height="200px" 
+                    data-width="98%" 
+                    data-colors="#22CC77 #009DD6" 
+                    data-dygraph-smooth="true"
+                    data-dygraph-type="line"
+                    data-dygraph-strokewidth="2" 
+                    data-dygraph-highlightcirclesize="8"
+            ></div>
+
+
+            <br>
+            <hr>
+            <p class="title">Received Request Resolve</p>
+            <div    data-netdata="beanstalk.received_requests_resolve" 
+                    data-height="200px" 
+                    data-width="98%" 
+                    data-colors="#22CC77 #009DD6" 
+                    data-dygraph-smooth="true"
+                    data-dygraph-type="line"
+                    data-dygraph-strokewidth="2" 
+                    data-dygraph-highlightcirclesize="8"
+            ></div>
+
+
+            <br>
+            <hr>
+            <br>
+            <p id="link2" class="title">System IO</p>
+            <br>
+
+            <div    data-netdata="system.io" 
+                    data-height="200px" 
+                    data-width="200px" 
+                    data-chart-library="easypiechart" 
+                    data-colors="#22CC77 #009DD6"
+                    style="float:left"
+            ></div>
+
+            <div    data-netdata="system.io" 
+                    data-height="200px" 
+                    data-width="calc(98% - 240px)" 
+                    data-colors="#22CC77 #009DD6" 
+                    data-dygraph-smooth="true"
+                    data-dygraph-strokewidth="2" 
+                    style="float:right;margin-right:20px;"
+            ></div>
+
+            <div class="clearfix h210"></div>
+            <hr>
+            <p id="link3" class="title">Request Per IP</p>
+            <div    data-netdata="web_log_nginx_netdata.requests_per_ipproto" 
+                    data-height="200px" 
+                    data-width="98%" 
+                    data-colors="#22CC77 #009DD6"
+            ></div>
+            <hr>
+            <p class="title">System RAM</p>
+            <div    data-netdata="system.ram" 
+                    data-height="200px" 
+                    data-width="98%" 
+                    data-colors="#22CC77 #009DD6" 
+                    data-title="Custom Title"
+            ></div>
+            <hr>
+            <p class="title">System RAM (Google chart)</p>
+            <div    data-netdata="system.ram" 
+                    data-height="200px" 
+                    data-width="98%" 
+                    data-colors="#22CC77 #009DD6" 
+                    data-chart-library="google"
+                    data-title="Custom Title"
+            ></div>
+            <br>
+            <br>
+            <br>
+        </div>
+    </div>
+</body>
+
+<script scr="./js/drag.js"></script>
+
+</html>
