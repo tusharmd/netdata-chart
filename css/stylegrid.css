@@ -72,6 +72,7 @@ h1 {
     letter-spacing: 3px;
     line-height: 22px;
     text-transform: uppercase;
+    cursor: move;
 }
 
 .h210 {
@@ -166,4 +167,10 @@ input:checked+.slider:before {
     text-align: center;
     vertical-align: middle;
     pointer-events: all;
+}
+
+.over {
+    border: 3px dashed grey;
+    padding: 10px;
+    background-color: rgba(255, 255, 0, 0.05);
 }
