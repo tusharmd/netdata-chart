@@ -6,7 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>NET DATA Chart</title>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+    <script type="text/javascript" src="http://139.59.56.147:19999/lib/jquery-2.2.4.min.js"></script>
     <script type="text/javascript" src="http://139.59.56.147:19999/dashboard.js"></script>
+    
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/stylegrid.css">
 </head>
@@ -42,20 +45,22 @@
             </ul>
 
             <ul id="custom-charts">
-                <div class="custom-charts" data-position="side" data-netdata-icon="users.pwrites" data-height="200px" data-width="98%" data-colors="#22CC77 #009DD6" draggable="true">Users Disk Writes</div>
-                <div class="custom-charts" data-position="side" data-netdata-icon="netdata.plugin_proc_modules" data-height="200px" data-width="98%" draggable="true">Proc Plugin</div>
-                <div class="custom-charts" data-position="side" data-netdata-icon="apps.cpu" data-height="200px" data-width="98%" draggable="true">Apps CPU Time</div>
-                <div class="custom-charts" data-position="side" data-netdata-icon="apps.threads" data-height="200px" data-width="98%" draggable="true">Apps Threads</div>
-                <div class="custom-charts" data-position="side" data-netdata-icon="apps.sockets" data-height="200px" data-width="98%" draggable="true">Apps Open Sockets</div>
-                <div class="custom-charts" data-position="side" data-netdata-icon="netdata.plugin_cgroups_cpu" data-height="200px" data-width="98%" draggable="true">NetData CGroups</div>
-                <div class="custom-charts" data-position="side" data-netdata-icon="system.cpu" data-chart-library="gauge" data-height="200px" data-width="20%" data-units="%" data-gauge-max-value="100" data-after="-420" data-points="420" draggable="true">System CPU</div>
-                <div class="custom-charts" data-position="side" data-netdata-icon="system.ram" data-dimensions="used|buffers|active|wired" data-append-options="percentage" data-chart-library="easypiechart" data-title="Used RAM" data-units="%" data-easypiechart-max-value="100" data-height="200px" data-width="9%" data-after="-420" data-points="420" draggable="true">System RAM</div>
+                <div class="custom-charts" data-drop data-position="side" data-netdata-icon="users.pwrites" data-height="200px" data-width="98%" data-colors="#22CC77 #009DD6" draggable="true">Users Disk Writes</div>
+                <div class="custom-charts" data-drop data-position="side" data-netdata-icon="netdata.plugin_proc_modules" data-height="200px" data-width="98%" draggable="true">Proc Plugin</div>
+                <div class="custom-charts" data-drop data-position="side" data-netdata-icon="apps.cpu" data-height="200px" data-width="98%" draggable="true">Apps CPU Time</div>
+                <div class="custom-charts" data-drop data-position="side" data-netdata-icon="apps.threads" data-height="200px" data-width="98%" draggable="true">Apps Threads</div>
+                <div class="custom-charts" data-drop data-position="side" data-netdata-icon="apps.sockets" data-height="200px" data-width="98%" draggable="true">Apps Open Sockets</div>
+                <div class="custom-charts" data-drop data-position="side" data-netdata-icon="netdata.plugin_cgroups_cpu" data-height="200px" data-width="98%" draggable="true">NetData CGroups</div>
+                <div class="custom-charts" data-drop data-position="side" data-netdata-icon="system.cpu" data-chart-library="gauge" data-height="200px" data-width="200px" data-units="%" data-gauge-max-value="100" data-after="-420" data-points="420" data-size="small" draggable="true">System CPU</div>
+                <div class="custom-charts" data-drop data-position="side" data-netdata-icon="system.ram" data-dimensions="used|buffers|active|wired" data-append-options="percentage" data-chart-library="easypiechart" data-title="Used RAM" data-units="%" data-easypiechart-max-value="100" data-height="200px" data-width="200px" data-after="-420" data-points="420" data-size="small" draggable="true">System RAM</div>
+                <div class="custom-charts" data-drop data-position="side" data-netdata-icon="queue_resolve.queue_queries" data-chart-library="easypiechart" data-colors="#22CC77" data-title="Queue Resolve Production Rate" data-units="Query" data-decimal-digits="0" data-dimensions="productionRate" data-height="200px"  data-width="200px" data-size="small" draggable="true">Resolve Production Rate</div>
+                <div class="custom-charts" data-drop data-position="side" data-netdata-icon="queue_resolve.queue_queries" data-chart-library="easypiechart" data-colors="#009DD6" data-title="Queue Resolve Consumption Rate" data-units="Query" data-decimal-digits="0" data-dimensions="consumptionRate" data-height="200px"  data-width="200px" data-size="small" draggable="true">Resolve Consumption Rate</div>
             </ul>
         </div>
         <div class="chartRight">
             <h1>Chart</h1>
             <hr>
-            <div data-drop="custom-drop">
+            <div data-drop="custom-drop" data-position="main" class="big">
                 <p class="title"><i class="fas fa-cog"></i> Queue Enqueue</p>
                 <div    data-netdata="queue_enqueue.queue_queries" 
                         data-height="200px" 
@@ -72,7 +77,7 @@
             </div>
             <br>
             <hr>
-            <div data-drop="custom-drop">
+            <div data-drop="custom-drop" data-position="main" class="big">
                 <p class="title"><i class="fas fa-cog"></i> Queue Max Resolve</p>
                 <div    data-netdata="queue_MxResolve.queue_queries" 
                         data-height="200px" 
@@ -89,7 +94,7 @@
             </div>
             <br>
             <hr>
-            <div data-drop="custom-drop">
+            <div data-drop="custom-drop" data-position="main" class="big">
                 <p class="title"><i class="fas fa-cog"></i> Queue Max Push Messages</p>
                 <div    data-netdata="queue_PushMessage.queue_queries" 
                         data-height="200px" 
@@ -106,7 +111,7 @@
             </div>
             <br>
             <hr>
-            <div data-drop="custom-drop">
+            <div data-drop="custom-drop" data-position="main" class="big">
                 <p class="title"><i class="fas fa-cog"></i> Queue Resolve</p>
                 <div    data-netdata="queue_resolve.queue_queries" 
                         data-height="200px" 
@@ -124,94 +129,97 @@
             <br>
             <hr>
             
-            <p class="title" draggable="true">Request Enqueue</p>
-            <div data-netdata="queue_enqueue.queue_queries"
-                data-chart-library="easypiechart"
-                data-title="Queue Production Rate"
-                data-units="Query"
-                data-decimal-digits="0"
-                data-dimensions="productionRate"
-                data-height="200px" 
-                data-width="200px"
-                data-drop="custom-drop"
-            ></div>
-
-            <div data-netdata="queue_enqueue.queue_queries"
-                data-chart-library="easypiechart"
-                data-title="Queue Consumption Rate"
-                data-units="Query"
-                data-decimal-digits="0"
-                data-dimensions="consumptionRate"
-                data-height="200px" 
-                data-width="200px"
-                data-drop="custom-drop"
-            ></div>
+            <div data-drop="custom-drop" data-position="main" class="big">
+                <p class="title" draggable="true"><i class="fas fa-cog"></i> Request Enqueue</p>
             
-            <div data-netdata="queue_MxResolve.queue_queries"
-                data-chart-library="easypiechart"
-                data-title="Queue Max Resolved"
-                data-units="Query"
-                data-decimal-digits="0"
-                data-dimensions="productionRate"
-                data-height="200px" 
-                data-width="200px"
-                data-drop="custom-drop"
-            ></div>
+                <div data-netdata="queue_enqueue.queue_queries"
+                    data-chart-library="easypiechart"
+                    data-colors="#22CC77"
+                    data-title="Queue Production Rate"
+                    data-units="Query"
+                    data-decimal-digits="0"
+                    data-dimensions="productionRate"
+                    data-height="200px" 
+                    data-width="200px"
+                ></div>
 
-            <div data-netdata="queue_MxResolve.queue_queries"
-                data-chart-library="easypiechart"
-                data-title="Queue Max Resolved"
-                data-units="Query"
-                data-decimal-digits="0"
-                data-dimensions="consumptionRate"
-                data-height="200px" 
-                data-width="200px"
-                data-drop="custom-drop"
-            ></div>
+                <div data-netdata="queue_enqueue.queue_queries"
+                    data-chart-library="easypiechart"
+                    data-colors="#009DD6"
+                    data-title="Queue Consumption Rate"
+                    data-units="Query"
+                    data-decimal-digits="0"
+                    data-dimensions="consumptionRate"
+                    data-height="200px" 
+                    data-width="200px"
+                ></div>
+                
+                <div data-netdata="queue_MxResolve.queue_queries"
+                    data-chart-library="easypiechart"
+                    data-colors="#22CC77"
+                    data-title="Queue Max Resolved"
+                    data-units="Query"
+                    data-decimal-digits="0"
+                    data-dimensions="productionRate"
+                    data-height="200px" 
+                    data-width="200px"
+                ></div>
 
-            <div data-netdata="queue_PushMessage.queue_queries"
-                data-chart-library="easypiechart"
-                data-title="Queue Push Message Production Rate"
-                data-units="Query"
-                data-decimal-digits="0"
-                data-dimensions="productionRate"
-                data-height="200px" 
-                data-width="200px"
-                data-drop="custom-drop"
-            ></div>
+                <div data-netdata="queue_MxResolve.queue_queries"
+                    data-chart-library="easypiechart"
+                    data-colors="#009DD6"
+                    data-title="Queue Max Resolved"
+                    data-units="Query"
+                    data-decimal-digits="0"
+                    data-dimensions="consumptionRate"
+                    data-height="200px" 
+                    data-width="200px"
+                ></div>
 
-            <div data-netdata="queue_PushMessage.queue_queries"
-                data-chart-library="easypiechart"
-                data-title="Queue Push Message Consumption Rate"
-                data-units="Query"
-                data-decimal-digits="0"
-                data-dimensions="consumptionRate"
-                data-height="200px" 
-                data-width="200px"
-                data-drop="custom-drop"
-            ></div>
+                <div data-netdata="queue_PushMessage.queue_queries"
+                    data-chart-library="easypiechart"
+                    data-colors="#22CC77"
+                    data-title="Queue Push Message Production Rate"
+                    data-units="Query"
+                    data-decimal-digits="0"
+                    data-dimensions="productionRate"
+                    data-height="200px" 
+                    data-width="200px"
+                ></div>
 
-            <div data-netdata="queue_resolve.queue_queries"
-                data-chart-library="easypiechart"
-                data-title="Queue Resolve Production Rate"
-                data-units="Query"
-                data-decimal-digits="0"
-                data-dimensions="productionRate"
-                data-height="200px" 
-                data-width="200px"
-                data-drop="custom-drop"
-            ></div>
+                <div data-netdata="queue_PushMessage.queue_queries"
+                    data-chart-library="easypiechart"
+                    data-colors="#009DD6"
+                    data-title="Queue Push Message Consumption Rate"
+                    data-units="Query"
+                    data-decimal-digits="0"
+                    data-dimensions="consumptionRate"
+                    data-height="200px" 
+                    data-width="200px"
+                ></div>
 
-            <div data-netdata="queue_resolve.queue_queries"
-                data-chart-library="easypiechart"
-                data-title="Queue Resolve Consumption Rate"
-                data-units="Query"
-                data-decimal-digits="0"
-                data-dimensions="consumptionRate"
-                data-height="200px" 
-                data-width="200px"
-                data-drop="custom-drop"
-            ></div>
+                <div data-netdata="queue_resolve.queue_queries"
+                    data-chart-library="easypiechart"
+                    data-colors="#22CC77"
+                    data-title="Queue Resolve Production Rate"
+                    data-units="Query"
+                    data-decimal-digits="0"
+                    data-dimensions="productionRate"
+                    data-height="200px" 
+                    data-width="200px"
+                ></div>
+
+                <div data-netdata="queue_resolve.queue_queries"
+                    data-chart-library="easypiechart"
+                    data-colors="#009DD6"
+                    data-title="Queue Resolve Consumption Rate"
+                    data-units="Query"
+                    data-decimal-digits="0"
+                    data-dimensions="consumptionRate"
+                    data-height="200px" 
+                    data-width="200px"
+                ></div>
+            </div>
 
             <!-- 
 

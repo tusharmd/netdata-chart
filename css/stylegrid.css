@@ -73,6 +73,9 @@ h1 {
     line-height: 22px;
     text-transform: uppercase;
     cursor: move;
+    user-select: none;
+    -moz-user-select: -moz-none;
+    
 }
 
 .h210 {
@@ -162,15 +165,44 @@ input:checked+.slider:before {
     cursor: move;
     margin: 10px;
     user-select: none;
-    line-height: 28px;
     -moz-user-select: -moz-none;
+    line-height: 28px;
     text-align: center;
     vertical-align: middle;
     pointer-events: all;
 }
 
 .over {
+    display: inline-block;
+    height: 0px;
+    width: 100%;
+    transition: height 1s ease-out;
+    /*
+    content: 'Drop your chart here';
+    padding: 50px;
+    height: 200px;
+    width: 100%;
     border: 3px dashed grey;
-    padding: 10px;
     background-color: rgba(255, 255, 0, 0.05);
+    */
+}
+
+.over:before {
+    content: 'Drop your chart here';
+    padding: 50px;
+    height: 250px;
+    width: calc(100vh - 300px);
+    border: 3px dashed grey;
+    background-color: rgba(255, 255, 0, 0.05);
+    text-align: center;
+    vertical-align: middle;
+}
+
+.small {
+    float: left;
+    margin-right: 25px;
+}
+
+.big {
+    clear: both;
 }

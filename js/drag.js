@@ -24,29 +24,28 @@ function handleDragOver(e) {
 }
 
 function handleDragEnter(e) {
-    //console.log("Hover added to ", e.target);
 
-    console.log("Position ",e.target.dataset.position);
-    
-    //console.log('handleDragEnter is called at ', e);
+    if(dragSrcEl === this) {
+        return;
+    }
+
     // this / e.target is the current hover target.
     
     //Remove hover from all 
     $('.over').removeClass('over');
-    
-    this.classList.add('over');
-    dragTargetEl = this;
+
+    if(this.dataset.drop === 'custom-drop'){
+        this.classList.add('over');
+        dragTargetEl = this;
+    }
 }
 
 function handleDragLeave(e) {
-    //console.log('handleDragLeave is called at ', e);
-    //this.classList.remove('over'); // this / e.target is previous target element.
+    // this / e.target is previous target element.
 }
 
 function handleDrop(e) {
-    //console.log('handleDrop is called at ', e);
     // this/e.target is current target element.
-
     if (e.stopPropagation) {
         e.stopPropagation(); // Stops some browsers from redirecting.
     }
@@ -83,6 +82,13 @@ function handleDragEnd(e) {
 
         //To generate new chart
         NETDATA.globalReset();
+
+        if(e.target.dataset.size === "small"){
+            e.target.parentNode.classList.add("small");
+        }else{
+            e.target.parentNode.classList.add("big");
+        }
+        
     }else if(e.target.dataset.position === "main"){
         $(dragTargetEl).before(e.target);
     }
@@ -91,10 +97,6 @@ function handleDragEnd(e) {
     $('.over').removeClass('over');
 }
 
-var cols = document.querySelectorAll('#custom-charts .custom-charts');
-[].forEach.call(cols, function (col) {
-    addDragEvents(col);
-});
 
 var drops = document.querySelectorAll('div[data-drop]');
 [].forEach.call(drops, function (drop) {
@@ -102,6 +104,8 @@ var drops = document.querySelectorAll('div[data-drop]');
 });
 
 function addDragEvents(ele) {
+    console.log("Adding Events to --> ",ele); 
+
     ele.addEventListener('dragstart', handleDragStart, false);
     ele.addEventListener('dragenter', handleDragEnter, false);
     ele.addEventListener('dragover', handleDragOver, false);
@@ -109,3 +113,11 @@ function addDragEvents(ele) {
     ele.addEventListener('drop', handleDrop, false);
     ele.addEventListener('dragend', handleDragEnd, false);
 }
+
+$(document).ready(function(){
+    $('p.title').on('dblclick', function(e){
+        console.log('Event received on ',e); 
+        $(e.currentTarget).siblings().toggle(300);
+    });
+});
+
